@@ -173,6 +173,18 @@ angular.module('ngCollection', []).
         return this;
       },
 
+      removeByIndex: function(index) {
+        var obj = this.hash[index]
+        if (!obj) {
+          return this
+        }
+        var arrayIndex = this.array.indexOf(obj)
+        delete this.hash[index]
+        this.array.splice(arrayIndex, 1);
+        this.length--;
+        return this;
+      },
+
       removeAll: function() {
         for (var i = this.array.length - 1; i >= 0; i--) {
           this.remove(this.at(i));

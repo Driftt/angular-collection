@@ -308,6 +308,15 @@ describe("collection", function() {
     });
   });
 
+  describe("#removeByIndex", function(){
+    it("shoud remove an object by index", function() {
+      var length = otherTodos.length;
+      otherTodos.removeByIndex(a[otherTodos.idAttribute])
+      expect(otherTodos.length).to.equal(length-1);
+      expect(otherTodos.get(a)).to.be.an('undefined');
+    });
+  });
+
   describe("#removeAll", function(){
     it("should remove all objects", function(){
       otherTodos.removeAll();
